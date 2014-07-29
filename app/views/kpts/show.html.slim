@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @kpt.title
+
+= link_to 'Edit', edit_kpt_path(@kpt)
+'|
+= link_to 'Back', kpts_path

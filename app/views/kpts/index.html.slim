@@ -1,0 +1,21 @@
+h1 Listing kpts
+
+table
+  thead
+    tr
+      th Title
+      th
+      th
+      th
+
+  tbody
+    - @kpts.each do |kpt|
+      tr
+        td = kpt.title
+        td = link_to 'Show', kpt
+        td = link_to 'Edit', edit_kpt_path(kpt)
+        td = link_to 'Destroy', kpt, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Kpt', new_kpt_path

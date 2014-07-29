@@ -1,0 +1,8 @@
+= form_for @kpt, :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    = f.label :title, :class => 'control-label'
+    = f.text_field :title, :class => 'form-control'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    | &#xA0;
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), kpt_path, :class => 'btn'

@@ -1,0 +1,22 @@
+- model_class = Kpt
+.page-header
+  h1=t '.title', :default => model_class.model_name.human.pluralize
+table.table.table-striped
+  thead
+    tr
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:created_at)
+      th=t '.actions', :default => t("helpers.actions")
+    tbody
+      - @kpts.each do |kpt|
+        tr
+          td= link_to kpt.id, kpt_path(kpt)
+          td= kpt.title
+          td=l kpt.created_at
+          td
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_kpt_path(kpt), :class => 'btn btn-primary btn-xs'
+            | &#xA0;
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), kpt_path(kpt), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger btn-xs'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_kpt_path, :class => 'btn btn-primary'
