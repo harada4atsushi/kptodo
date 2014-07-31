@@ -1,12 +1,8 @@
-= form_for @kpt do |f|
-  - if @kpt.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@kpt.errors.count, "error")} prohibited this kpt from being saved:"
-      ul
-        - @kpt.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .actions = f.submit 'Save'
+= form_for @kpt, :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    = f.label :title, :class => 'control-label'
+    = f.text_field :title, :class => 'form-control'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    | &#xA0;
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), kpts_path, :class => 'btn'

@@ -34,6 +34,8 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'devise'
 gem 'omniauth'
 gem "omniauth-facebook"
+gem 'dotenv-rails'
+gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

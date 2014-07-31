@@ -1,9 +1,15 @@
-p#notice = notice
+- model_class = Kpt
+.page-header
+  h1=t '.title', :default => model_class.model_name.human
 
 p
-  strong Title:
+  strong= model_class.human_attribute_name(:title) + ':'
+  br
   = @kpt.title
 
-= link_to 'Edit', edit_kpt_path(@kpt)
-'|
-= link_to 'Back', kpts_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), kpt_path, :class => 'btn'
+  | &#xA0;
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_kpt_path(@kpt), :class => 'btn btn-primary'
+  | &#xA0;
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), kpt_path(@kpt), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

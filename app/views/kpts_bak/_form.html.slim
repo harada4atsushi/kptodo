@@ -1,0 +1,12 @@
+= form_for @kpt do |f|
+  - if @kpt.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@kpt.errors.count, "error")} prohibited this kpt from being saved:"
+      ul
+        - @kpt.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .actions = f.submit 'Save'

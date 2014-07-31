@@ -37,8 +37,7 @@ Rails.application.configure do
 
   # TODO git管理をはずす
   Devise.setup do |config|
-    config.omniauth :facebook, 'xxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxxxxxxxxx', :scope => 'email'
-    #config.secret_key = ""
+    config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"], :scope => 'email'
   end
 
 end
