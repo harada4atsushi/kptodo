@@ -15,7 +15,9 @@
         table.table
           = f.fields_for :keeps do |k|
             tr
-              td= k.text_field :content, :class => 'form-control', placeholder: "Keep"    
+              td
+                = k.text_field :content, :class => 'form-control', placeholder: "Keep"    
+                = k.hidden_field :id
 
     .panel.panel-danger
       .panel-heading
@@ -24,7 +26,9 @@
         table.table
           = f.fields_for :problems do |k|
             tr
-              td= k.text_field :content, :class => 'form-control', placeholder: "Problem"    
+              td
+                = k.text_field :content, :class => 'form-control', placeholder: "Problem"    
+                = k.hidden_field :id
 
     .panel.panel-primary
       .panel-heading
@@ -33,5 +37,7 @@
         table.table
           = f.fields_for :tries do |k|
             tr
-              td= k.text_field :content, :class => 'form-control', placeholder: "Try"
+              td
+                = k.text_field :content, :class => 'form-control', placeholder: "Try"
+                = k.hidden_field :id
 

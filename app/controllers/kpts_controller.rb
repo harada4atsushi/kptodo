@@ -45,8 +45,7 @@ class KptsController < ApplicationController
   def update
     respond_to do |format|
       if @kpt.update(kpt_params)
-        format.html { redirect_to @kpt, notice: 'Kpt was successfully updated.' }
-        format.json { render :show, status: :ok, location: @kpt }
+        format.html { redirect_to kpts_path, notice: 'Kpt was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @kpt.errors, status: :unprocessable_entity }
@@ -72,6 +71,6 @@ class KptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kpt_params
-      params.require(:kpt).permit(:title, keeps_attributes: [:content], problems_attributes: [:content], tries_attributes: [:content])
+      params.require(:kpt).permit(:title, keeps_attributes: [:id, :content], problems_attributes: [:id, :content], tries_attributes: [:id, :content])
     end
 end
