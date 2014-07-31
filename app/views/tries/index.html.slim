@@ -1,0 +1,21 @@
+h1 Listing tries
+
+table
+  thead
+    tr
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @tries.each do |try|
+      tr
+        td = try.content
+        td = link_to 'Show', try
+        td = link_to 'Edit', edit_try_path(try)
+        td = link_to 'Destroy', try, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Try', new_try_path

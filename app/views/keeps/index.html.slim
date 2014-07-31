@@ -1,0 +1,21 @@
+h1 Listing keeps
+
+table
+  thead
+    tr
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @keeps.each do |keep|
+      tr
+        td = keep.content
+        td = link_to 'Show', keep
+        td = link_to 'Edit', edit_keep_path(keep)
+        td = link_to 'Destroy', keep, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Keep', new_keep_path

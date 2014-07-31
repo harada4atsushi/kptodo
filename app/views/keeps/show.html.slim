@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Content:
+  = @keep.content
+
+= link_to 'Edit', edit_keep_path(@keep)
+'|
+= link_to 'Back', keeps_path

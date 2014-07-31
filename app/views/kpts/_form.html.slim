@@ -13,42 +13,25 @@
         h3.panel-title Keep
       .panel-body
         table.table
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Keep"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-success'
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Keep"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-success'
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Keep"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-success'
-    
+          = f.fields_for :keeps do |k|
+            tr
+              td= k.text_field :content, :class => 'form-control', placeholder: "Keep"    
+
     .panel.panel-danger
       .panel-heading
         h3.panel-title Problem
       .panel-body
         table.table
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Problem"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-danger'
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Problem"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-danger'
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Problem"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-danger'
+          = f.fields_for :problems do |k|
+            tr
+              td= k.text_field :content, :class => 'form-control', placeholder: "Problem"    
 
     .panel.panel-primary
       .panel-heading
         h3.panel-title Try
       .panel-body
         table.table
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Try"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-primary'
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Try"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-primary'
-          tr
-            td= f.text_field :title, :class => 'form-control', placeholder: "Try"
-            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-primary'
+          = f.fields_for :tries do |k|
+            tr
+              td= k.text_field :content, :class => 'form-control', placeholder: "Try"
+

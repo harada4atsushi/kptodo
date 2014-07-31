@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Content:
+  = @problem.content
+
+= link_to 'Edit', edit_problem_path(@problem)
+'|
+= link_to 'Back', problems_path

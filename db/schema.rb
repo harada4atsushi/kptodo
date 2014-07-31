@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729143019) do
+ActiveRecord::Schema.define(version: 20140731092309) do
+
+  create_table "keeps", force: true do |t|
+    t.integer  "kpt_id",     null: false
+    t.string   "content",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "kpts", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "problems", force: true do |t|
+    t.integer  "kpt_id",     null: false
+    t.string   "content",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +38,13 @@ ActiveRecord::Schema.define(version: 20140729143019) do
     t.string   "address"
     t.decimal  "lat",        precision: 9, scale: 6
     t.decimal  "lng",        precision: 9, scale: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tries", force: true do |t|
+    t.integer  "kpt_id",     null: false
+    t.string   "content",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

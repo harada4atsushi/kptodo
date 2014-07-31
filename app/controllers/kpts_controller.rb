@@ -12,9 +12,13 @@ class KptsController < ApplicationController
   def show
   end
 
-  # GET /kpts/new
   def new
     @kpt = Kpt.new
+    3.times do
+      @kpt.keeps.build
+      @kpt.problems.build
+      @kpt.tries.build
+    end
   end
 
   # GET /kpts/1/edit
@@ -28,8 +32,7 @@ class KptsController < ApplicationController
 
     respond_to do |format|
       if @kpt.save
-        format.html { redirect_to @kpt, notice: 'Kpt was successfully created.' }
-        format.json { render :show, status: :created, location: @kpt }
+        format.html { redirect_to kpts_path, notice: 'Kpt was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @kpt.errors, status: :unprocessable_entity }
@@ -69,6 +72,6 @@ class KptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kpt_params
-      params.require(:kpt).permit(:title)
+      params.require(:kpt).permit(:title, keeps_attributes: [:content], problems_attributes: [:content], tries_attributes: [:content])
     end
 end
