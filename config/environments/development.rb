@@ -40,4 +40,5 @@ Rails.application.configure do
     config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"], :scope => 'email'
   end
 
+  Slim::Engine.default_options[:pretty] = true
 end

@@ -1,8 +1,54 @@
 = form_for @kpt, :html => { :class => 'form-horizontal' } do |f|
+  .page-header
+    h1
+      = "KPT"
+      = f.submit "Save", :class => 'btn btn-primary btn-right'
+      = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
+    
   .form-group
-    = f.label :title, :class => 'control-label'
-    = f.text_field :title, :class => 'form-control'
-  .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
-    | &#xA0;
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), kpts_path, :class => 'btn'
+    = f.text_field :title, :class => 'form-control', placeholder: "KPTタイトル"
+
+    .panel.panel-success
+      .panel-heading
+        h3.panel-title Keep
+      .panel-body
+        table.table
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Keep"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-success'
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Keep"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-success'
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Keep"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-success'
+    
+    .panel.panel-danger
+      .panel-heading
+        h3.panel-title Problem
+      .panel-body
+        table.table
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Problem"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-danger'
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Problem"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-danger'
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Problem"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-danger'
+
+    .panel.panel-primary
+      .panel-heading
+        h3.panel-title Try
+      .panel-body
+        table.table
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Try"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-primary'
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Try"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-primary'
+          tr
+            td= f.text_field :title, :class => 'form-control', placeholder: "Try"
+            td.col-xs-1 = link_to fa_icon("plus"), kpts_path, :class => 'btn btn-primary'

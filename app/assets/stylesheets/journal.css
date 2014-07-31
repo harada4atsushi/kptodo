@@ -6,4 +6,5 @@
  *= require common
 */
 
+@import "journal/base";
 @import "font-awesome";
