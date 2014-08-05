@@ -62,8 +62,11 @@ class KptsController < ApplicationController
 
   def export
     # TODO 共通化
-    Todoist::Base.setup(ENV["TODOIST_API_TOKEN"])
-    project = Todoist::Project.all[0].add_task(try_params[:content], { "date_string" => "tomorrow" })
+    token = current_user.preference.todoist_api_token
+    if token
+      Todoist::Base.setup(token)
+      project = Todoist::Project.all[0].add_task(try_params[:content], { "date_string" => "tomorrow" })
+    end
   end
 
   private

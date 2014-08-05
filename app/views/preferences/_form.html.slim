@@ -1,0 +1,10 @@
+= form_for @preference, url: preference_path, method: :put, :html => { :class => 'form-horizontal' } do |f|
+  .page-header
+    h1
+      = "Preference"
+      = f.submit "Save", :class => 'btn btn-primary btn-right'
+      = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
+    
+  .form-group
+    = f.label :todoist_api_token, "Todoist API Token"
+    = f.text_field :todoist_api_token, :class => 'form-control', placeholder: "Todoist API Token"

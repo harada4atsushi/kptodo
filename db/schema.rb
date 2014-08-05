@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805024251) do
+ActiveRecord::Schema.define(version: 20140805103414) do
 
   create_table "keeps", force: true do |t|
     t.integer  "kpt_id",     null: false
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20140805024251) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",    null: false
+  end
+
+  create_table "preferences", force: true do |t|
+    t.integer  "user_id",           null: false
+    t.string   "todoist_api_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "problems", force: true do |t|

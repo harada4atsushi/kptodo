@@ -25,6 +25,17 @@ body, html {
       left: 2px;
       top: 2px; 
     }
+    .btns {
+      position: absolute;
+      right: 2px;
+      top: -4px; 
+      margin: 0;
+      padding: 0;
+
+      a {
+        margin-left: 2px;
+      }
+    }
   }
 }
 

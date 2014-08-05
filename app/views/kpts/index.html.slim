@@ -2,7 +2,9 @@
 .page-header
   h1
     =t '.title', :default => "KPT"
-    = link_to fa_icon("plus"), new_kpt_path, :class => 'btn btn-primary btn-right'
+    .btns
+      = link_to fa_icon("plus"), new_kpt_path, :class => 'btn btn-primary'
+      = link_to fa_icon("cogs"), edit_preference_path, :class => 'btn btn-info'
 table.table.table-striped
   thead
     tbody
