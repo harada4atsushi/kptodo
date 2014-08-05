@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+@export_try = (idx) ->
+  content = $("#kpt_tries_attributes_#{idx}_content").val()
+  $("#try_content").val(content)
+  $("#export_form").submit()
+  false
+
+$ -> 
+  $('#export_form').bind('ajax:complete', (data, res, xhr) ->
+    alert("タスクを登録しました")
+  )

@@ -1,10 +1,13 @@
 class KptsController < ApplicationController
   before_action :set_kpt, only: [:show, :edit, :update, :destroy]
 
-  # GET /kpts
-  # GET /kpts.json
   def index
-    @kpts = Kpt.all
+    @kpts = current_user.kpts 
+
+    #Todoist::Base.setup(ENV["TODOIST_API_TOKEN"])
+    #Todoist::Task.all.each do |task|
+    #  puts task
+    #end
   end
 
   # GET /kpts/1
@@ -25,18 +28,12 @@ class KptsController < ApplicationController
   def edit
   end
 
-  # POST /kpts
-  # POST /kpts.json
   def create
-    @kpt = Kpt.new(kpt_params)
-
-    respond_to do |format|
-      if @kpt.save
-        format.html { redirect_to kpts_path, notice: 'Kpt was successfully created.' }
-      else
-        format.html { render :new }
-        format.json { render json: @kpt.errors, status: :unprocessable_entity }
-      end
+    @kpt = current_user.kpts.build(kpt_params)
+    if @kpt.save
+      redirect_to kpts_path, notice: '登録しました'
+    else
+      render :new
     end
   end
 
@@ -63,6 +60,12 @@ class KptsController < ApplicationController
     end
   end
 
+  def export
+    # TODO 共通化
+    Todoist::Base.setup(ENV["TODOIST_API_TOKEN"])
+    project = Todoist::Project.all[0].add_task(try_params[:content], { "date_string" => "tomorrow" })
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_kpt
@@ -72,5 +75,8 @@ class KptsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def kpt_params
       params.require(:kpt).permit(:title, keeps_attributes: [:id, :content], problems_attributes: [:id, :content], tries_attributes: [:id, :content])
+    end
+    def try_params
+      params.require(:try).permit(:content)
     end
 end

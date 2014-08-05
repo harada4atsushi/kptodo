@@ -45,6 +45,8 @@ gem "omniauth-facebook"
 gem 'dotenv-rails'
 gem "font-awesome-rails"
 gem "simple_form"
+gem "todoist"
+gem 'rails-i18n'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
