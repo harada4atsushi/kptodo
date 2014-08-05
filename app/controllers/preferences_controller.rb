@@ -14,7 +14,7 @@ class PreferencesController < ApplicationController
 
   private
     def set_preference
-      @preference = current_user.preference || current_user.preference.build
+      @preference = current_user.preference || current_user.build_preference
     end
 
     def preference_params
