@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805103414) do
+ActiveRecord::Schema.define(version: 20140807023652) do
 
   create_table "keeps", force: true do |t|
     t.integer  "kpt_id",     null: false
@@ -41,15 +41,6 @@ ActiveRecord::Schema.define(version: 20140805103414) do
     t.datetime "updated_at"
   end
 
-  create_table "ramen_restaurants", force: true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.decimal  "lat",        precision: 9, scale: 6
-    t.decimal  "lng",        precision: 9, scale: 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tries", force: true do |t|
     t.integer  "kpt_id",     null: false
     t.string   "content",    null: false
@@ -73,21 +64,10 @@ ActiveRecord::Schema.define(version: 20140805103414) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "visitings", force: true do |t|
-    t.integer  "ramen_restaurant_id"
-    t.string   "memo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "uuid",                null: false
-  end
 
 end

@@ -42,11 +42,15 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'devise'
 gem 'omniauth'
 gem "omniauth-facebook"
+gem 'omniauth-google-oauth2'
+gem #'omniauth-github'
 gem 'dotenv-rails'
 gem "font-awesome-rails"
 gem "simple_form"
 gem "todoist"
 gem 'rails-i18n'
+gem "faraday"
+gem "faraday_middleware"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

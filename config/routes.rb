@@ -11,7 +11,14 @@ Rails.application.routes.draw do
     patch "export", on: :collection
   end
 
-  resource :preference, only: [:edit, :update]
+  resource :preference, only: [:edit, :update] do
+    post "todoist"
+  end
+  
+  #scope :links do
+  #  get "todoist"
+  #end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

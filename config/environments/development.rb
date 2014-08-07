@@ -35,9 +35,10 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # TODO git管理をはずす
+  # FIXME 移動する config/initializers/devise.rb
   Devise.setup do |config|
     config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"], :scope => 'email'
+    config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
   end
 
   Slim::Engine.default_options[:pretty] = true

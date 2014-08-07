@@ -7,7 +7,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  database: mencolle
+  database: kptodo 
   pool: 5
   username: root
   password:

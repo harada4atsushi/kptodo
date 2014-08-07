@@ -1,10 +1,19 @@
-= form_for @preference, url: preference_path, method: :put, :html => { :class => 'form-horizontal' } do |f|
-  .page-header
-    h1
-      = "Preference"
-      = f.submit "Save", :class => 'btn btn-primary btn-right'
-      = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
-    
-  .form-group
-    = f.label :todoist_api_token, "Todoist API Token"
-    = f.text_field :todoist_api_token, :class => 'form-control', placeholder: "Todoist API Token"
+.page-header
+  h1
+    = "Preference"
+    = 
+    = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
+
+  table.table.table-borderless 
+    tr
+      td Todoist
+      td.col-xs-4.text-right
+        = button_to current_user.preference.linked_todoist? ? "ON" : "OFF", todoist_preference_path, :class => "btn btn-right #{'btn-primary' if current_user.preference.linked_todoist?}"
+
+
+    /#= form_for @preference, url: preference_path, method: :put, :html => { :class => 'form-horizontal' } do |f|
+     / tr
+     /   td Todoist
+     /   td = f.submit "Save", :class => 'btn btn-primary btn-right'
+
+
