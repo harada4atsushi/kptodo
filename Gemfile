@@ -43,7 +43,7 @@ gem 'devise'
 gem 'omniauth'
 gem "omniauth-facebook"
 gem 'omniauth-google-oauth2'
-gem #'omniauth-github'
+#gem 'omniauth-github'
 gem 'dotenv-rails'
 gem "font-awesome-rails"
 gem "simple_form"
