@@ -28,4 +28,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
+  def github 
+    token = request.env['omniauth.auth']["credentials"]["token"]
+    current_user.preference.github_api_token = token
+    current_user.preference.save
+    redirect_to edit_preference_path
+  end
 end

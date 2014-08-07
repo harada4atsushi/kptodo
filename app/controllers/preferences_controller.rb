@@ -29,6 +29,12 @@ class PreferencesController < ApplicationController
     redirect_to edit_preference_path
   end
 
+  def github
+    binding.pry
+    redirect_to user_omniauth_authorize_path(:github)
+    #redirect_to edit_preference_path
+  end
+
   private
     def set_preference
       @preference = current_user.preference || current_user.create_preference

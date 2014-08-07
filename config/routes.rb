@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
   resource :preference, only: [:edit, :update] do
     post "todoist"
+    post "github"
   end
-  
+ 
+
   #scope :links do
   #  get "todoist"
   #end

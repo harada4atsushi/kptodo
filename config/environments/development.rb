@@ -39,7 +39,12 @@ Rails.application.configure do
   Devise.setup do |config|
     config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"], :scope => 'email'
     config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+    config.omniauth :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"]
   end
+
+  #Rails.application.config.middleware.use OmniAuth::Builder do
+  #  provider :github, ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_CLIENT_SECRET'], { provider_ignores_state: true }
+  #end
 
   Slim::Engine.default_options[:pretty] = true
 end

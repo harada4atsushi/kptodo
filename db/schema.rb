@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807023652) do
+ActiveRecord::Schema.define(version: 20140807064301) do
 
   create_table "keeps", force: true do |t|
     t.integer  "kpt_id",     null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140807023652) do
     t.string   "todoist_api_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "github_api_token"
   end
 
   create_table "problems", force: true do |t|
