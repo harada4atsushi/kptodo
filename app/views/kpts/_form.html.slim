@@ -1,9 +1,12 @@
 = form_for @kpt, :html => { :class => 'form-horizontal' } do |f|
-  .page-header
-    h1
-      = "KPT"
-      = f.submit "Save", :class => 'btn btn-primary btn-right'
-      = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
+  .navber.navbar-fixed-top.navbar-default
+    .navbar-inner
+      .container.page-header
+        h1
+          = "KPT"
+          = f.submit "Save", :class => 'btn btn-primary btn-right'
+          = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
+
     
   .form-group
     = f.text_field :title, :class => 'form-control', placeholder: "KPTタイトル"
