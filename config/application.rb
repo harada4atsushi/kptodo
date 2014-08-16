@@ -20,6 +20,6 @@ module Kptodo
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
 
-    config.assets.precompile += %w(journal.js journal.css)
+    config.assets.precompile += %w(lumen.js lumen.css)
   end
 end

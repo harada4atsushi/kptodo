@@ -4,4 +4,3 @@
 //= require jquery_ujs
 //= require journal/loader
 //= require journal/bootswatch
-//= require kpts 
