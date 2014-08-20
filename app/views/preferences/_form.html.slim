@@ -18,6 +18,12 @@
           = button_to "ON", providers_redmine_path, method: :delete, :class => "btn btn-right btn-primary"
         - else
           = button_to "OFF", new_providers_redmine_path, method: :get, :class => "btn btn-right"
+    tr
+      td 
+      td.col-xs-4.text-right
+        = link_to 'Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger" 
+        
+
     /tr
     /  td GitHub
     /  td.col-xs-4.text-right

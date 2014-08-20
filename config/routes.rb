@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  #resources :tries
+  
+  devise_for :users, except: [:sign_up, :sign_in], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  #resources :problems
-
-  #resources :keeps
-
-  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
- 
   resources :kpts do
     patch "export", on: :collection
   end
