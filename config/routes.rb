@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   end
 
   resource :preference, only: [:edit, :update] do
-    post "todoist"
     post "github"
   end
  
+  namespace :providers do
+    resource :redmine, controller: "redmine", only: [:new, :create, :destroy]
+    post "todoist"
+  end
 
   #scope :links do
   #  get "todoist"

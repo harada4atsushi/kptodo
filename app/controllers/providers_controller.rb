@@ -1,4 +1,25 @@
-class PreferencesController < ApplicationController
+class ProvidersController < ApplicationController
+  
+  def todoist
+    conn = Faraday.new(:url => 'https://api.todoist.com') do |faraday|
+      faraday.request  :url_encoded       
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+    uri = "/API/loginWithGoogle/?email=#{current_user.email}&oauth2_token=#{current_user.token}"
+    response = conn.get uri
+    doc = JSON.parse response.body
+    #puts doc
+
+    current_user.providers.create(provider: Provider::TODOIST, access_token: doc["token"])
+    #current_user.preference.save
+
+    redirect_to edit_preference_path
+
+    # TODO offの処理
+  end
+
+=begin
   before_action :set_preference, only: [:edit, :update]
 
   def edit
@@ -11,6 +32,7 @@ class PreferencesController < ApplicationController
       render :edit
     end
   end
+
 
   def github
     #binding.pry

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :kpts
+  has_many :providers
   has_one :preference
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
                          password: Devise.friendly_token[0, 20])
     end
     user
+  end
+
+  def provided?(provider)
+    self.providers.find_by(provider: provider).present?
   end
 
 end

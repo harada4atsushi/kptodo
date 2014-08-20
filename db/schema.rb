@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807064301) do
+ActiveRecord::Schema.define(version: 20140820075705) do
 
   create_table "keeps", force: true do |t|
     t.integer  "kpt_id",     null: false
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20140807064301) do
   create_table "problems", force: true do |t|
     t.integer  "kpt_id",     null: false
     t.string   "content",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "providers", force: true do |t|
+    t.integer  "user_id",      null: false
+    t.string   "provider",     null: false
+    t.string   "access_token", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
