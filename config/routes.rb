@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :kpts do
     patch "export", on: :collection
+    post "redmine", on: :collection
   end
 
   resource :preference, only: [:edit, :update] do

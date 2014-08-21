@@ -1,0 +1,19 @@
+#ipModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"]
+  .modal-dialog
+    .modal-content
+      = simple_form_for(listed_ip, url: { controller: :dialog, action: :labeling_ip, params: params }) do |f|
+        .modal-header
+          button.close[type="button" data-dismiss="modal" aria-hidden="true"]
+            | ×
+          h4#myModalLabel.modal-title
+            | IPリストに登録する
+        .modal-body
+          p#result_msg
+          p#ip_address
+          |  <%= f.input :ip_type_id, collection: IpType.all, as: :radio_buttons, label_method: lambda { |type| "#{image_tag type.image_path, class: 'with_icon'} #{type.label}".html_safe } %> 
+          = f.input :ip, as: :hidden
+          = f.input :comment
+        .modal-footer
+          = f.submit :class => 'btn btn-color'
+          button.btn.btn-default[type="button" data-dismiss="modal"]
+            | 閉じる

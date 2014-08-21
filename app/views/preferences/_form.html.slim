@@ -11,13 +11,13 @@
       td Todoist
       td.col-xs-4.text-right
         = button_to current_user.provided?(Provider::TODOIST) ? "ON" : "OFF", providers_todoist_path, :class => "btn btn-right #{'btn-primary' if current_user.provided?(Provider::TODOIST)}"
-    tr
-      td Redmine
-      td.col-xs-4.text-right
-        - if current_user.provided?(Provider::REDMINE)
-          = button_to "ON", providers_redmine_path, method: :delete, :class => "btn btn-right btn-primary"
-        - else
-          = button_to "OFF", new_providers_redmine_path, method: :get, :class => "btn btn-right"
+    /tr
+    /  td Redmine
+    /  td.col-xs-4.text-right
+    /    - if current_user.provided?(Provider::REDMINE)
+    /      = button_to "ON", providers_redmine_path, method: :delete, :class => "btn btn-right btn-primary"
+    /    - else
+    /      = button_to "OFF", new_providers_redmine_path, method: :get, :class => "btn btn-right"
     tr
       td 
       td.col-xs-4.text-right

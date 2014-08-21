@@ -1,12 +1,11 @@
-= form_for @redmine, :html => { :class => 'form-horizontal' } do |f|
+= form_for @kpt, :html => { :class => 'form-horizontal' } do |f|
   .navber.navbar-fixed-top.navbar-default
     .navbar-inner
       .container.page-header
         h1
-          = "Redmine"
+          = "KPT"
           = f.submit "Save", :class => 'btn btn-primary btn-right'
           = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
-
     
   .form-group
     = f.text_field :title, :class => 'form-control', placeholder: "KPTタイトル"
@@ -43,7 +42,27 @@
               td
                 = k.text_field :content, :class => 'form-control', placeholder: "Try"
                 = k.hidden_field :id
+              /td.col-xs-1  = link_to fa_icon("external-link"), "#ipModal", data: { toggle: 'modal' }, class: 'btn btn-primary'
               td.col-xs-1 = link_to fa_icon("external-link"), "javascript:void(0)", onclick: "export_try(#{k.index});", :class => 'btn btn-primary'
 
 = form_for :try, url: export_kpts_path, method: :patch, remote: true, html: { id: "export_form" } do |f|
   = f.hidden_field :content
+
+/#ipModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"]
+/.modal-dialog
+/  .modal-content
+/    .modal-header
+/      button.close[type="button" data-dismiss="modal" aria-hidden="true"]
+/        | ×
+/      h4#myModalLabel.modal-title
+/        | TODOを作成する
+/      = form_for @redmine, url: redmine_kpts_path, method: :post, remote: true, :html => { :class => 'form-horizontal' } do |f|
+/        .modal-body
+/            = f.text_field :subject, placeholder: "件名"
+/            = f.text_area :description, placeholder: "説明"
+/            = f.text_field :project_id, placeholder: "プロジェクトID"
+/            = f.text_field :assignd_to_id, placeholder: "担当者ID"
+/        .modal-footer
+/          = f.submit :class => 'btn btn-primary'
+/          button.btn.btn-default[type="button" data-dismiss="modal"]
+/            | 閉じる

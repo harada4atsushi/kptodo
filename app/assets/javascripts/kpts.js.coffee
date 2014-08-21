@@ -6,5 +6,5 @@
 
 $ -> 
   $('#export_form').bind('ajax:complete', (data, res, xhr) ->
-    alert("タスクを登録しました")
+    alert("Todoistにタスクを登録しました")
   )

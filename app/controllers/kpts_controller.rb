@@ -3,15 +3,8 @@ class KptsController < ApplicationController
 
   def index
     @kpts = current_user.kpts 
-
-    #Todoist::Base.setup(ENV["TODOIST_API_TOKEN"])
-    #Todoist::Task.all.each do |task|
-    #  puts task
-    #end
   end
 
-  # GET /kpts/1
-  # GET /kpts/1.json
   def show
   end
 
@@ -65,9 +58,13 @@ class KptsController < ApplicationController
     token = current_user.preference.todoist_api_token
     if token
       Todoist::Base.setup(token)
-      project = Todoist::Project.all[0].add_task(try_params[:content], { "date_string" => "tomorrow" })
+      project = Todoist::Project.all[0].add_task(try_params[:content], { "priority" => 1, "date_string" => "tomorrow" })
     end
   end
+
+  #def redmine
+  #  Redmine.new(redmine_params).export
+  #end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -75,11 +72,15 @@ class KptsController < ApplicationController
       @kpt = Kpt.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def kpt_params
       params.require(:kpt).permit(:title, keeps_attributes: [:id, :content], problems_attributes: [:id, :content], tries_attributes: [:id, :content])
     end
+
     def try_params
       params.require(:try).permit(:content)
+    end
+
+    def redmine_params
+      params.require(:redmine).permit(:subject, :description, :project_id, :assignd_to_id)
     end
 end

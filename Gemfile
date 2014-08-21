@@ -52,6 +52,7 @@ gem 'rails-i18n'
 gem "faraday"
 gem "faraday_middleware"
 gem "virtus"
+gem "activeresource"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
