@@ -1,7 +1,26 @@
-.navber.navbar-fixed-top.navbar-default
-.navbar-inner
-  .container.page-header
-    h1 ログイン
+.top
+  .top-in 
+  	h1.gergia KPTodo
+  	= link_to "Googleアカウントでログイン", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary"
 
-.form-group style="text-align:center"
-  = link_to "Googleアカウントでログイン", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary"
+//.form-group style="text-align:center"
+.top-main
+  ul.top-ul
+    li.gergia
+      span.text-success = fa_icon("thumbs-up")
+	  | &nbsp;Keep
+	li その日を振り返って「良かったこと」を書き出します。
+	li.gergia
+	  span.text-danger = fa_icon("frown-o")
+	  | &nbsp;Problem
+	li その日を振り返って「問題だったこと」を書き出します。
+	li.gergia
+	  span.text-primary = fa_icon("star")
+	  | &nbsp;Try
+	li Problemを元に、明日挑戦することを書き出します。
+
+  br
+  span.gergia.lbl-kptodo KPTodo
+  | &nbsp;はKPTによって毎日の行動を振り返って記録し、自らの行動を見つめ直して改善を見つけるためのツールです。
+
+  hr

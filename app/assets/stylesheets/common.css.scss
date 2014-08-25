@@ -7,7 +7,7 @@ body, html {
   font-size: 20px;
 }
 body {
-  padding-top: 40px;
+  //padding-top: 40px;
 }
 .page-header {
   margin: 0;
@@ -73,4 +73,49 @@ body {
       border: 0;
     }
   }
+}
+
+.gergia {
+  font-family: georgia,'times new roman',serif;
+}
+
+.top {
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: image-url("top.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  vertical-align: middle;
+  position: relative;
+
+  .top-in {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -4em;
+    text-align: center;
+  }
+}
+.top-main {
+  padding: 0 20px;
+  font-size: 18px;
+}
+.top-ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin-top: 15px;
+  li {
+    font-size: 17px;
+    margin-top: 10px;
+    span {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
+.lbl-kptodo {
+  font-size: 25px;
 }
