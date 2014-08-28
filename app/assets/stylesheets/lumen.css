@@ -6,4 +6,5 @@
  *= require font-awesome
  *= require common 
 */
-/* @import "compass"; */
+
+@import "compass";
