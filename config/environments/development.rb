@@ -50,7 +50,7 @@ Rails.application.configure do
   :email => {
     :email_prefix => "[Kptodo] ",
     :sender_address => %{"notifier" <notfy@kptodo.tokyo>},
-    :exception_recipients => %w{ ENV["NOTIFY_MAIL"] }
+    :exception_recipients => ENV["NOTIFY_MAIL"]
   }
 
   config.action_mailer.default_url_options = { :host => "localhost", :port => 3000 }
