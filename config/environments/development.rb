@@ -46,5 +46,17 @@ Rails.application.configure do
   #  provider :github, ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_CLIENT_SECRET'], { provider_ignores_state: true }
   #end
 
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[Kptodo] ",
+    :sender_address => %{"notifier" <notfy@kptodo.tokyo>},
+    :exception_recipients => %w{ ENV["NOTIFY_MAIL"] }
+  }
+
+  config.action_mailer.default_url_options = { :host => "localhost", :port => 3000 }
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
   Slim::Engine.default_options[:pretty] = true
 end

@@ -79,6 +79,9 @@ GEM
       dotenv (= 0.11.1)
     equalizer (0.0.9)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -287,6 +290,7 @@ DEPENDENCIES
   compass-rails
   devise
   dotenv-rails
+  exception_notification
   faraday
   faraday_middleware
   font-awesome-rails
