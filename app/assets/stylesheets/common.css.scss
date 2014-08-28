@@ -1,14 +1,8 @@
-// Place all the styles related to the Kpts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 body, html {
   margin: 0;
   padding: 0;
   font-size: 20px;
   padding-top: 20px;
-}
-body {
-  //padding-top: 40px;
 }
 .page-header {
   margin: 0;
@@ -129,5 +123,38 @@ body {
   img {
     width: 100%;
     max-width: 400px;
+  }
+  p {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar .container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+  }
+  .navbar {
+    background-color: inherit;
+    border: none;
+  }
+  .navbar-fixed-top {
+    position: inherit;
+  }
+  .table {
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+  .form-horizontal .form-group {
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
   }
 }

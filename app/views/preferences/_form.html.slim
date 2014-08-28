@@ -1,4 +1,4 @@
-.navber.navbar-fixed-top.navbar-default
+.navbar.navbar-fixed-top.navbar-default
   .navbar-inner
     .container.page-header
       h1
@@ -6,34 +6,34 @@
         = 
         = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
 
-  table.table.table-borderless 
-    tr
-      td Todoist
-      td.col-xs-4.text-right
-        = button_to current_user.provided?(Provider::TODOIST) ? "ON" : "OFF", providers_todoist_path, :class => "btn btn-right #{'btn-primary' if current_user.provided?(Provider::TODOIST)}"
-    /tr
-    /  td Redmine
-    /  td.col-xs-4.text-right
-    /    - if current_user.provided?(Provider::REDMINE)
-    /      = button_to "ON", providers_redmine_path, method: :delete, :class => "btn btn-right btn-primary"
-    /    - else
-    /      = button_to "OFF", new_providers_redmine_path, method: :get, :class => "btn btn-right"
-    tr
-      td 
-      td.col-xs-4.text-right
-        = link_to 'Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger" 
-        
+table.table.table-borderless 
+  tr
+    td Todoist
+    td.col-xs-4.text-right
+      = button_to current_user.provided?(Provider::TODOIST) ? "ON" : "OFF", providers_todoist_path, :class => "btn btn-right #{'btn-primary' if current_user.provided?(Provider::TODOIST)}"
+  /tr
+  /  td Redmine
+  /  td.col-xs-4.text-right
+  /    - if current_user.provided?(Provider::REDMINE)
+  /      = button_to "ON", providers_redmine_path, method: :delete, :class => "btn btn-right btn-primary"
+  /    - else
+  /      = button_to "OFF", new_providers_redmine_path, method: :get, :class => "btn btn-right"
+  tr
+    td 
+    td.col-xs-4.text-right
+      = link_to 'Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger" 
+      
 
-    /tr
-    /  td GitHub
-    /  td.col-xs-4.text-right
-    /    #= button_to current_user.preference.linked_github? ? "ON" : "OFF", user_omniauth_authorize_path(:github), :class => "btn btn-right #{'btn-primary' if current_user.preference.linked_github?}"
+  /tr
+  /  td GitHub
+  /  td.col-xs-4.text-right
+  /    #= button_to current_user.preference.linked_github? ? "ON" : "OFF", user_omniauth_authorize_path(:github), :class => "btn btn-right #{'btn-primary' if current_user.preference.linked_github?}"
 
 
 
-    /#= form_for @preference, url: preference_path, method: :put, :html => { :class => 'form-horizontal' } do |f|
-     / tr
-     /   td Todoist
-     /   td = f.submit "Save", :class => 'btn btn-primary btn-right'
+  /#= form_for @preference, url: preference_path, method: :put, :html => { :class => 'form-horizontal' } do |f|
+   / tr
+   /   td Todoist
+   /   td = f.submit "Save", :class => 'btn btn-primary btn-right'
 
 
