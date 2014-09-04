@@ -21,5 +21,11 @@ module Kptodo
     config.i18n.default_locale = :ja
 
     config.assets.precompile += %w(lumen.js lumen.css)
+
+    config.generators do |g|  
+      g.test_framework = "rspec"
+      g.helper_specs = false  
+      g.view_specs = false  
+    end 
   end
 end

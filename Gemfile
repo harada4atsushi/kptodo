@@ -35,6 +35,11 @@ group :test, :development do
   gem 'spring'
 end
 
+group :test do  
+  gem 'rspec-rails'  
+  gem 'capybara'
+end
+
 gem 'slim-rails'
 gem 'compass-rails'
 gem 'twitter-bootswatch-rails', '~> 3.2.0'
@@ -54,7 +59,6 @@ gem "faraday_middleware"
 gem "virtus"
 gem 'activeresource'
 gem 'exception_notification'
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
