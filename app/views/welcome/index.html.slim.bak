@@ -1,0 +1,8 @@
+- Department.where(user_id: 1).pluck(:code).uniq.each do |code|
+  | CODE:
+  = code
+  table
+    - Department.by_code(1, code).each do |department|
+      tr
+        td =department.name
+  br

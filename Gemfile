@@ -35,8 +35,8 @@ group :test, :development do
   gem 'spring'
 end
 
-group :test do  
-  gem 'rspec-rails'  
+group :test do
+  gem 'rspec-rails'
   gem 'capybara'
 end
 
@@ -59,6 +59,7 @@ gem "faraday_middleware"
 gem "virtus"
 gem 'activeresource'
 gem 'exception_notification'
+gem 'memoist'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
