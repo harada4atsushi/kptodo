@@ -43,8 +43,8 @@
                 = k.text_field :content, :class => 'form-control', placeholder: "Try"
                 = k.hidden_field :id
               /td.col-xs-1  = link_to fa_icon("external-link"), "#ipModal", data: { toggle: 'modal' }, class: 'btn btn-primary'
-              - if current_user.provided?(Provider::TODOIST)
-                td.col-xs-1 = link_to fa_icon("external-link"), "javascript:void(0)", onclick: "export_try(#{k.index});", :class => 'btn btn-primary'
+              /- if current_user.provided?(Provider::TODOIST)
+              /  td.col-xs-1 = link_to fa_icon("external-link"), "javascript:void(0)", onclick: "export_try(#{k.index});", :class => 'btn btn-primary'
 
 /= form_for :try, url: export_kpts_path, method: :patch, remote: true, html: { id: "export_form" } do |f|
 /  = f.hidden_field :content
