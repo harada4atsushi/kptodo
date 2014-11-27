@@ -6,7 +6,7 @@
           = "KPT"
           = f.submit "Save", :class => 'btn btn-primary btn-right'
           = link_to fa_icon("arrow-left"), kpts_path, :class => 'btn btn-default btn-left'
-    
+
   .form-group
     = f.text_field :title, :class => 'form-control', placeholder: "KPTタイトル"
 
@@ -18,7 +18,7 @@
           = f.fields_for :keeps do |k|
             tr
               td
-                = k.text_field :content, :class => 'form-control', placeholder: "Keep"    
+                = k.text_field :content, :class => 'form-control', placeholder: "Keep"
                 = k.hidden_field :id
 
     .panel.panel-danger
@@ -29,7 +29,7 @@
           = f.fields_for :problems do |k|
             tr
               td
-                = k.text_field :content, :class => 'form-control', placeholder: "Problem"    
+                = k.text_field :content, :class => 'form-control', placeholder: "Problem"
                 = k.hidden_field :id
 
     .panel.panel-primary
@@ -46,8 +46,8 @@
               - if current_user.provided?(Provider::TODOIST)
                 td.col-xs-1 = link_to fa_icon("external-link"), "javascript:void(0)", onclick: "export_try(#{k.index});", :class => 'btn btn-primary'
 
-= form_for :try, url: export_kpts_path, method: :patch, remote: true, html: { id: "export_form" } do |f|
-  = f.hidden_field :content
+/= form_for :try, url: export_kpts_path, method: :patch, remote: true, html: { id: "export_form" } do |f|
+/  = f.hidden_field :content
 
 /#ipModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"]
 /.modal-dialog

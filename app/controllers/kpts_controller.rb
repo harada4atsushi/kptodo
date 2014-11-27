@@ -2,7 +2,7 @@ class KptsController < ApplicationController
   before_action :set_kpt, only: [:show, :edit, :update, :destroy]
 
   def index
-    @kpts = current_user.kpts 
+    @kpts = current_user.kpts.order("created_at desc")
   end
 
   def show
